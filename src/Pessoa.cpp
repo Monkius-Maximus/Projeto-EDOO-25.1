@@ -1,9 +1,15 @@
 #include "Pessoa.h"
-#include <string>
 #include <iostream>
-using std::string;
 
-// Criar construtor
+// Construtor da classe Pessoa
+Pessoa::Pessoa (
+    int contato,
+    int registroId,
+    std::string nome
+)
+    : contato(contato),
+    registroId(registroId),
+    nome(nome) {}
 
 void Pessoa::exibirDadosPessoa() {
     std::cout << "--- Dados da Pessoa ---" << std::endl;

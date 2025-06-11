@@ -2,7 +2,7 @@
 #define TECNICO_H
 
 #include "Pessoa.h"
-using std::string
+using std::string;
 
 class Tecnico : public Pessoa  
 {

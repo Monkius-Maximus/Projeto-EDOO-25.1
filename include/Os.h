@@ -2,7 +2,7 @@
 #define OS_H
 
 #include "Pessoa.h"
-using std::string
+using std::string;
 
 class Os : public Pessoa  
 {

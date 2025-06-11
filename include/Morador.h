@@ -2,7 +2,7 @@
 #define MORADOR_H
 
 #include "Pessoa.h"
-using std::string
+using std::string;
 
 class Morador : public Pessoa  
 {

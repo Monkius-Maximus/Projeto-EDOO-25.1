@@ -1,4 +1,6 @@
-#ifndef AGENDA_H
+// Não usaremos por enquanto o arquivo Agenda.h, mas ele está aqui para referência futura.
+
+/* #ifndef AGENDA_H
 #define AGENDA_H
 
 #include "Pessoa.h"
@@ -19,3 +21,4 @@ public:
 
 
 #endif
+*/

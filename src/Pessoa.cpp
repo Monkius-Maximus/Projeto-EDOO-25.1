@@ -1,19 +1,25 @@
 #include "Pessoa.h"
 #include <iostream>
+using namespace std;
 
-// Construtor da classe Pessoa
-Pessoa::Pessoa (
-    int contato,
-    int registroId,
-    std::string nome
-)
-    : contato(contato),
-    registroId(registroId),
-    nome(nome) {}
+Pessoa::Pessoa()
+{
+    id = 0;
+    nome = "";
+    email = "";
+};
 
-void Pessoa::exibirDadosPessoa() {
-    std::cout << "--- Dados da Pessoa ---" << std::endl;
-    std::cout << "Nome: " << nome << std::endl;
-    std::cout << "ID: " << registroId << std::endl;
-    std::cout << "Contato: " << contato << std::endl;
-}
+Pessoa::Pessoa(const int id, const string &nome, const string &email)
+{
+    this->id = id;
+    this->nome = nome;
+    this->email = email;
+
+};
+
+void Pessoa::display()
+{
+    cout << "ID: " << id << endl;
+    cout << "Nome: " << nome << endl;
+    cout << "Email: " << email << endl;
+};

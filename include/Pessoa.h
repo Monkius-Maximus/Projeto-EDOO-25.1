@@ -4,22 +4,20 @@
 #include <string>
 using std::string;
 
-class Pessoa {
+class Pessoa
+{
+private:
+    int id;
+    string nome;
+    string email;
 
-    private:
-        int registroId;
-        string nome;
-        int contato;
-
-    public:
-        Pessoa (
-            int contato,
-            int registroId,
-            std::string nome
-        );
-        
-    void exibirDadosPessoa();
+public:
+    Pessoa(); // Construtor padrão
+    Pessoa(int id, const string &nome, const string &email); // Construtor
+    // Depois utilizar Getters e Setters
+    void display();
 
 };
+
 
 #endif

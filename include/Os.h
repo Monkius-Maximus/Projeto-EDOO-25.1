@@ -7,6 +7,7 @@ using std::string;
 class Os
 {
 private:
+    int osID;
     string categoria;
     string servico;
     double valor;
@@ -18,7 +19,7 @@ private:
 
 public:
     Os(); // Inicializar como construtor padrão vazio;
-    Os(const string &categoria, const string &servico, const double &valor, int prioridade, const string &comentario, const string &dataAbertura, const string &dataFechamento, bool conclusao);
+    Os(int osID, const string &categoria, const string &servico, const double &valor, int prioridade, const string &comentario, const string &dataAbertura, const string &dataFechamento, bool conclusao);
 
 };
 

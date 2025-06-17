@@ -15,7 +15,7 @@ public:
     Pessoa(); // Construtor padrão
     Pessoa(int id, const string &nome, const string &email); // Construtor
     // Depois utilizar Getters e Setters
-    void display();
+    void display() const;
 
 };
 

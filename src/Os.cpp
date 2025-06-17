@@ -13,7 +13,7 @@ Os::Os()
     prioridade = 0;
 
     comentario = "Comentário do Técnico";
-    valor = 0;
+    valor = 0.00;
     dataFechamento = "Data de Fechamento";
     conclusao = "Está Concluída?";
 };

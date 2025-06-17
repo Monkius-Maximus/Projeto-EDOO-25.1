@@ -13,10 +13,14 @@ private:
     double nota;
 
 public:
-    Tecnico(int id, const string &nome, const string &email, const string &especialidade); // Construtor padrão que inicializa disponibilidade false e nota com 0.
+    Tecnico(); // Construtor padrão que inicializa disponibilidade false e nota com 0.
     Tecnico(int id, const string &nome, const string &email, const string &especialidade, bool disponibilidade, double nota);
-
-
+    void VisualizarChamadosDisponiveis() const;
+    void AceitarChamado(int osID);
+    void FecharChamado(int osID, string comentarioTecnico, double valor);
+    void VisualizarMeusChamadosAtribuidos() const;
+    void MudarStatusDisponibilidade (bool disponibilidade);
+    double CalcularMediaAvaliacao(double nota) const;
 };
 
 #endif

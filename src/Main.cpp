@@ -1,4 +1,4 @@
-#include "../include/Os.h"
+#include "../include/Os.hpp"
 #include <iostream>
 
 using namespace std;
@@ -9,7 +9,7 @@ int main() {
         1,
         "13/06/2025",
         "Elétrica",
-        "Fiação solta dentro do apartamento, causando risco de choque.",
+        "A fiação solta dentro do apartamento, causando risco de choque.",
         5,
 
         "",  // Comentário do técnico

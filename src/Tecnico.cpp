@@ -1,4 +1,4 @@
-#include "../include/Tecnico.hpp"
+#include "../include/Tecnico.h"
 #include <iostream>
 using namespace std;
 

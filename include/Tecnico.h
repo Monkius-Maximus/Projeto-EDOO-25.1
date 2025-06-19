@@ -1,7 +1,7 @@
 #ifndef TECNICO_H
 #define TECNICO_H
 
-#include "Pessoa.hpp"
+#include "Pessoa.h"
 #include <string>
 using std::string;
 

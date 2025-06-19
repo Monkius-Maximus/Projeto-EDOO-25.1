@@ -1,4 +1,4 @@
-#include "../include/Os.hpp"
+#include "../include/Os.h"
 #include <iostream>
 
 using namespace std;

@@ -1,7 +1,7 @@
 #ifndef MORADOR_H
 #define MORADOR_H
 
-#include "Pessoa.h"
+#include "Pessoa.hpp"
 #include <string>
 using std::string;
 

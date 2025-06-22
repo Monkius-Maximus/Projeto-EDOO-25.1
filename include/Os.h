@@ -2,6 +2,10 @@
 #define OS_H
 
 #include <string>
+#include <iostream>
+
+using std::cout;
+using std::endl;
 using std::string;
 
 class Os

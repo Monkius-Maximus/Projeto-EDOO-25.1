@@ -1,8 +1,15 @@
 #ifndef TECNICO_H
 #define TECNICO_H
 
+#include "Os.h"
 #include "Pessoa.h"
+
 #include <string>
+#include <vector>
+#include <iostream>
+
+using std::cout;
+using std::endl;
 using std::string;
 
 class Tecnico : public Pessoa
@@ -19,7 +26,7 @@ public:
     // Métodos da classe:
     void VisualizarChamadosDisponiveis() const;
     void AceitarChamado(int osID);
-    void FecharChamado(int osID, string comentarioTecnico, double valor);
+    void FecharChamado(std::vector<Os>& listaOs);
     void VisualizarMeusChamadosAtribuidos() const;
     void MudarStatusDisponibilidade (bool disponibilidade);
     double CalcularMediaAvaliacao(double nota) const;

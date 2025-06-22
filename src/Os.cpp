@@ -15,7 +15,7 @@ Os::Os()
     comentario = "Comentário do Técnico";
     valor = 0.00;
     dataFechamento = "Data de Fechamento";
-    conclusao = "Está Concluída?";
+    conclusao = false;
 };
 
 Os::Os

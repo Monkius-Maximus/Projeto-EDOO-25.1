@@ -17,7 +17,7 @@ Pessoa::Pessoa(const int id, const string &nome, const string &email)
 
 };
 
-void Pessoa::display() const
+void Pessoa::displayInfo() const
 {
     cout << "ID: " << id << endl;
     cout << "Nome: " << nome << endl;

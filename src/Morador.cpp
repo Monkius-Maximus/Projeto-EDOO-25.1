@@ -1,4 +1,5 @@
 #include "../include/Morador.h"
+#include "Morador.h"
 #include <iostream>
 using namespace std;
 
@@ -10,7 +11,6 @@ Morador::Morador()
     inadiplente = false;
 };
 
-
 Morador::Morador(int id, const string &nome, const string &email, const string &apartamento, char classeApartamento, bool inadiplente)
     :Pessoa(id, nome, email)
 {
@@ -19,3 +19,11 @@ Morador::Morador(int id, const string &nome, const string &email, const string &
     this->inadiplente = inadiplente;
 
 };
+
+Os* Morador::AbrirChamado(string categoria, string servico, string comentario, int prioridade){
+    if(VerificarInadiplencia()){
+        cout << "Morador " << getNome() << " está inadiplente e não poderá abrir chamados.";
+    }
+    
+}
+

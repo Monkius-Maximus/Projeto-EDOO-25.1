@@ -1,24 +1,24 @@
 [
     {
-        "categoria": "Elétrica",
-        "comentario": "O morador quebrou a parede e expôs a fiação.",
+        "categoria": "El\u0000trica",
+        "comentario": "o fio terra n\u0000o estava corretamente fixado",
         "conclusao": true,
-        "dataAbertura": "13/06/2025",
-        "dataFechamento": "14/06/2025",
+        "dataAbertura": "22/06/2025",
+        "dataFechamento": "22/06/2025",
         "numeroOs": 1,
-        "prioridade": 5,
-        "servico": "A fiação solta dentro do apartamento, causando risco de choque.",
-        "valor": 50.5
+        "prioridade": 2,
+        "servico": "T\u0000 levando choque ao usar a tomada que fica no balc\u0000o da cozinha",
+        "valor": 2.0
     },
     {
-        "categoria": "Elétrica",
-        "comentario": "O morador quebrou a parede e expôs a fiação.",
+        "categoria": "encanacao",
+        "comentario": "apertei a abracadeira do cano inferior da pia",
         "conclusao": true,
-        "dataAbertura": "13/06/2025",
-        "dataFechamento": "14/06/2025",
+        "dataAbertura": "21/06/2025",
+        "dataFechamento": "22/06/2025",
         "numeroOs": 2,
         "prioridade": 5,
-        "servico": "A fiação solta dentro do apartamento, causando risco de choque.",
-        "valor": 50.5
+        "servico": "o cano da cozinha estourou",
+        "valor": 5.0
     }
 ]

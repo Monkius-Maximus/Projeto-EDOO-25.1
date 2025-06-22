@@ -6,7 +6,11 @@
 #include <vector>
 #include <string>
 
-void salvarEmJson(const std::vector<Os>& listaOs, const std::string& caminho);
+void salvarEmJson(
+    const std::vector<Os>& listaOs, 
+    const std::string& caminho
+);
+
 std::vector<Os> carregarDoJson(const std::string& caminho);
 
 #endif

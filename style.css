@@ -1,0 +1,135 @@
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+/* Cabeçalho */
+.cabecalho {
+    background: #2c3e50;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.cabecalho nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.cabecalho a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.5)), url('https://source.unsplash.com/random/1920x1080/?code') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.conteudo-hero {
+    max-width: 800px;
+    padding: 0 2rem;
+}
+
+.conteudo-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.botao {
+    display: inline-block;
+    background: #e74c3c;
+    color: white;
+    padding: 0.8rem 2rem;
+    margin-top: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+/* Seções */
+section {
+    padding: 5rem 2rem;
+}
+
+.sobre, .contato {
+    background: white;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sobre h2, .contato h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #2c3e50;
+}
+
+/* Cards */
+.cards {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #ecf0f1;
+    padding: 2rem;
+    border-radius: 10px;
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+}
+
+/* Formulário */
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+input, textarea {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    background: #2c3e50;
+    color: white;
+    padding: 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Rodapé */
+footer {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+footer a {
+    color: #e74c3c;
+}

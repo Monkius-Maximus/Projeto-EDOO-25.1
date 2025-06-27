@@ -33,37 +33,19 @@ class Morador : public Pessoa
     // Métodos da classe:
     Os* AbrirChamado(std::vector<Os>& listaOs);
     void VisualizarMeusChamados() const;
-    void CancelarChamado(int osId);
-    void AvaliarServico(int osId, int comentario);
+    void deletarChamado(int osId);
+    void AvaliarServico(int osId);
     bool VerificarInadiplencia() const;
 
     // Getters:
-    string getApartamento() const {return apartamento;}
-    char getClasseApartamento() const {return classeApartamento;}
-    bool getInadiplente() const {return inadiplente;}
+    string getApartamento() const;
+    char getClasseApartamento() const;
+    bool getInadiplente() const;
 
     // Setters:
-    void setApartamento(string &novoApartamento){
-        if(!novoApartamento.empty()){
-            apartamento = novoApartamento;
-        }
-        else {
-            cout << "Erro: Apartamento não pode ser vázio!" << endl;
-        }
-    }
-    
-    void setClasseApartamento(char novaClasseAp){
-        if(novaClasseAp == 'A' || novaClasseAp == 'B' || novaClasseAp == 'C' || novaClasseAp == 'D'){
-            classeApartamento = novaClasseAp;
-        }
-        else {
-            cout << "Erro: Classe de apartamento inválida!" << endl;
-        }
-    }
-
-    void setInadiplente(bool status) {
-        inadiplente = status;
-    }
+    void setApartamento(string &novoApartamento);
+    void setClasseApartamento(char novaClasseAp);
+    void setInadiplente(bool status);
 };
 
 #endif

@@ -10,19 +10,23 @@ using std::string;
 
 class Pessoa
 {
-private:
-    int id;
-    string nome;
-    string email;
-
-public:
-    Pessoa(); // Construtor padrão
-    Pessoa(int id, const string &nome, const string &email); // Construtor
-
+    private:
+        int idRegistro;
+        string nome;
+        string email;
+        
+    public:
+        Pessoa(); // Construtor padrão
+        Pessoa(
+            int idRegistro,
+            const string &nome,
+            const string &email
+        );
+        
     virtual void displayInfo() const; // Puramente virtual para garantir o Polimorfismo 
 
     // Getters:
-    int getId() const {return id; }
+    int getId() const {return idRegistro; }
     string getNome() const {return nome;}
     string getEmail() const {return email;}
 
@@ -30,12 +34,12 @@ public:
     void setId(int novoId) {
         if (novoId > 0)
         {
-            id = novoId;
+            idRegistro = novoId;
         }else {
             cout << "Erro: ID deve ser positivo!" << endl;
         }
-        
     }
+
     void setNome(string &novoNome) {
             if (!novoNome.empty())
             {
@@ -44,21 +48,19 @@ public:
             {
                 cout <<"Erro: Nome do usuário não deve ser vázio!" << endl;
             }
-            
         }
+
     void setEmail(string &novoEmail) {
         if (novoEmail.find('@'))
         {
             email = novoEmail;
         }else
         {
-            cout << "Erro: Email do usuário inválido";
+            cout << "Erro: E-mail do usuário inválido";
         }
-        
     }
 
-    // Criar um destrutor para classe (pensar com calma)
+    virtual ~Pessoa() = default; // Destrutor virtual para garantir a destruição correta de objetos derivados
 };
-
 
 #endif

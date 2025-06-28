@@ -22,7 +22,7 @@ class Morador : public Pessoa
     public:
         Morador(); // Construtor padrão
         Morador (
-            int id,
+            int idRegistro,
             const string &nome,
             const string &email,
             const string &apartamento,

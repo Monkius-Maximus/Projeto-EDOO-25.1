@@ -12,7 +12,6 @@ Tecnico::Tecnico()
 :Pessoa()
 {
     especialidade = "N/A";
-    disponibilidade = false;
     nota = 0.0;
 };
 
@@ -21,7 +20,6 @@ Tecnico::Tecnico(
     const string &nome,
     const string &email, 
     const string &especialidade, 
-    bool disponibilidade, 
     double nota
 )
 
@@ -33,36 +31,48 @@ Tecnico::Tecnico(
 
 {
     this->especialidade = especialidade;
-    this->disponibilidade = disponibilidade; 
     this->nota = nota; 
 };
 
 // Getters:
 string Tecnico::getEspecialidade() const {return especialidade;}
-bool Tecnico::getDisponibilidade() const {return disponibilidade;}
 double Tecnico::getNota() const {return nota;}
 
 // Setter:
 void Tecnico::setEspecialidade(const string &novaEspecialidade){
     if(!novaEspecialidade.empty()){
         especialidade = novaEspecialidade;
-    } else {
+    }
+    
+    else {
+        system("cls");
         cout << "Erro: Especialidade não pode ser vázia" << endl;
     }
+
 };
-void Tecnico::setDisponibilidade(bool status){
-    disponibilidade = status;
-};
+
 void Tecnico::setNota(double novaNota){
     if(novaNota >= 0.0 && novaNota <= 5.0){
         nota = novaNota;
-    }else{
+    }
+    
+    else{
+        system("cls");
         cout << "Erro: Nota inválida. A nota deve estar entre 0.0 e 5.0" << endl;
     }
+    
 }
+
+void aguardarEnterTecnico() {
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cout << "Pressione Enter para continuar...";
+    cin.get();
+}
+
 
 // Métodos da classe:
 void Tecnico::VisualizarChamadosDisponiveis() const{
+    system("cls");
     cout << "\n-*-*- Chamados Disponíveis para o Técnico " << getNome() << " -*-*-\n";
 
     vector<Os> listaOs = carregarDoJson("ordens.json");
@@ -77,63 +87,98 @@ void Tecnico::VisualizarChamadosDisponiveis() const{
     }
 
     if(!temChamadoDisponiveis){
+        system("cls");
         cout << "Não há chamados disponíveis no momento\n.";
     }
     cout << "\n";
 }
 
-void Tecnico::AceitarChamado(int osId){
+void Tecnico::AceitarChamado(int osId) {
+    system("cls");
     cout << "\n-*-*- Aceitar Chamado (OS #" << osId << ") -*-*-\n";
 
-    if(!getDisponibilidade()){
-        cout << "Você não está disponível para aceitar chamados no momento.\n";
-        return;
-    }
 
+
+    // Carregar a lista de OSs
     vector<Os> listaOs = carregarDoJson("ordens.json");
-    Os* osParaAceitar = nullptr;
+    bool osEncontrada = false;
 
-    for(size_t i = 0; i < listaOs.size(); i++){
-        if(listaOs[i].getNumeroOs() == osId){
-            osParaAceitar = &listaOs[i];
+    // Procurar a OS específica
+    for(auto& os : listaOs) {
+        if(os.getNumeroOs() == osId) {
+            osEncontrada = true;
+
+            // Verificar se a OS já está concluída
+            if(os.isConcluida()) {
+                cout << "A OS #" << osId << " já foi concluída e não pode ser aceita.\n";
+                return;
+            }
+
+            // Verificar se já está atribuída a outro técnico
+            if(os.isAtribuida()) {
+                cout << "A OS #" << osId << " já foi atribuída ao técnico " 
+                     << os.getNomeTecnicoResponsavel() << " (ID: " 
+                     << os.getIdTecnicoResponsavel() << ").\n";
+                return;
+            }
+
+            // Verificar especialidade
+            if(os.getCategoria() != getEspecialidade()) {
+                cout << "Esta OS não corresponde à sua especialidade (" 
+                     << getEspecialidade() << ").\n";
+                cout << "Categoria da OS: " << os.getCategoria() << endl;
+                return;
+            }
+
+            // Atribuir a OS ao técnico
+            os.setAtribuicao(getId(), getNome());
+            salvarEmJson(listaOs, "ordens.json");
+
+            cout << "OS #" << osId << " aceita com sucesso por " << getNome() << "!\n";
+            cout << "Agora você é o técnico responsável por esta OS.\n";
+            
             break;
         }
     }
 
-    if(osParaAceitar->isConcluida()){
-        cout << "A OS #" << osId << " já foi concluída e não pode ser aceita.\n";
-        return;
+    if(!osEncontrada) {
+        cout << "OS #" << osId << " não encontrada.\n";
     }
-
-    if(osParaAceitar->isAtribuida()){
-        cout << "A OS #" << osId << " já foi atribuída ao técnico " << osParaAceitar->getNomeTecnicoResponsavel() << "(ID: " << osParaAceitar->getIdTecnicoResponsavel() << ").\n";
-        return;
-    }
-
-    if(osParaAceitar->getCategoria() != getEspecialidade()){
-        cout << "Esta OS não corresponde à sua especialidade (" << getEspecialidade() << ").\n";
-        cout << "Categoria da OS: " << osParaAceitar->getCategoria() << endl;
-        return;
-    }
-
-    osParaAceitar->setAtribuicao(getId(), getNome());
-    salvarEmJson(listaOs, "ordens.json");
-
-    cout << "OS #" << osId << " aceita com sucesso por " << getNome() << "!\n";
-    cout << "Agora você é o técnico responsável por esta OS.\n";
 }
 
-void Tecnico::FecharChamado(vector<Os>& listaOs) {
+void Tecnico::FecharChamado() {
+    system("cls");
     int numeroOs;
     cout << "\n-*-*- Fechamento de Chamado -*-*-\n";
-    cout << "Digite o número da OS que deseja fechar: ";
+
+    vector<Os> listaOs = carregarDoJson("ordens.json");
+    
+    // Mostrar os chamados atribuídos primeiro
+    VisualizarMeusChamadosAtribuidos();
+    
+    cout << "Digite o número da OS que deseja fechar (ou 0 para cancelar): ";
     cin >> numeroOs;
+    
+    if (numeroOs == 0) {
+        return;  // Cancelar operação
+    }
     
     bool encontrada = false;
 
     for (auto& os : listaOs) {
         if (os.getNumeroOs() == numeroOs) {
             encontrada = true;
+            
+            // Verificar se o técnico atual é o responsável pela OS
+            if (os.getIdTecnicoResponsavel() != getId()) {
+                cout << "\nVocê não é o técnico responsável por esta OS.\n";
+                cout << "Pressione Enter para continuar...";
+                cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                cin.get();
+                return;
+            }
+
+            system("cls");
             cout << "\nOS encontrada. Dados atuais:\n";
             os.exibirDetalhesTecnico();
             cout << "\n";
@@ -146,30 +191,42 @@ void Tecnico::FecharChamado(vector<Os>& listaOs) {
             getline(cin, comentarioTecnicoEntrada);
 
             cout << "Valor do serviço: R$ ";
-            cin >> valor;
+            while (!(cin >> valor) || valor < 0) {
+                cout << "Valor inválido! Digite um número positivo: ";
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            }
 
             cout << "Data de fechamento (dd/mm/aaaa): ";
             cin.ignore();
             getline(cin, dataFechamento);
 
+            // Atualizar campos
             os.setComentarioTecnico(comentarioTecnicoEntrada);
             os.setValor(valor);
             os.setDataFechamento(dataFechamento);
             os.setConclusao(true);
-
-            cout << "\nOS fechada com sucesso!\n";
+            
             salvarEmJson(listaOs, "ordens.json");
-            break;
+
+            system ("cls");
+            cout << "\nOS #" << numeroOs << " fechada com sucesso!\n";
+            aguardarEnterTecnico();
+            return;  // Sai após fechar uma OS
         }
     }
 
     if (!encontrada) {
-        cout << "Nenhuma OS com esse número foi encontrada.\n";
+        cout << "\nNenhuma OS com esse número foi encontrada.\n";
+        cout << "Pressione Enter para continuar...";
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        cin.get();
     }
 }
 
 void Tecnico::VisualizarMeusChamadosAtribuidos() const{
-    cout << "\n-*-*- Seus Chamados Atribuídos, " << getNome() << " -*-*-\n";
+    system("cls");
+    cout << "\n-*-*- Chamados atribuídos para o técnico " << getNome() << ": -*-*-\n";
 
     vector<Os> listaOs = carregarDoJson("ordens.json");
 
@@ -183,6 +240,7 @@ void Tecnico::VisualizarMeusChamadosAtribuidos() const{
     }
 
     if(!temChamadosAtribuidos){
+        system("cls");
         cout << "Você não tem nenhum chamado atribuído no momento.\n";
     }
     cout << "\n";

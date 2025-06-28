@@ -17,7 +17,7 @@ Morador::Morador()
 };
 
 Morador::Morador(
-    int id,
+    int idRegistro,
     const string &nome,
     const string &email,
     const string &apartamento,
@@ -26,7 +26,7 @@ Morador::Morador(
 )
 
 :Pessoa(
-    id,
+    idRegistro,
     nome,
     email
 )
@@ -48,6 +48,7 @@ void Morador::setApartamento(string &novoApartamento){
         apartamento = novoApartamento;
     }
     else {
+        system("cls");
         cout << "Erro: Apartamento não pode ser vázio!" << endl;
     }
 };
@@ -57,12 +58,20 @@ void Morador::setClasseApartamento(char novaClasseAp){
         classeApartamento = novaClasseAp;
     }
     else {
+        system("cls");
         cout << "Erro: Classe de apartamento inválida!" << endl;
     }
+
 };
 void Morador::setInadiplente(bool status) {
     inadiplente = status;
 }
+
+void aguardarEnter() {
+    cout << "Pressione ENTER para continuar...";
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // limpa o buffer
+}
+
 
 // Métodos da classe:
 Os* Morador::AbrirChamado(vector<Os>& listaOs){
@@ -75,6 +84,7 @@ Os* Morador::AbrirChamado(vector<Os>& listaOs){
     string data, categoria, servico;
     int prioridade;
 
+    system("cls");
     cout << "\n-*-*- Abertura de OS -*-*-\n";
     cout << "Data de abertura (dd/mm/aaaa): ";
     getline(cin >> ws, data);
@@ -86,6 +96,7 @@ Os* Morador::AbrirChamado(vector<Os>& listaOs){
     // Garantir que a entrada para prioridade seja um número inteiro válido
     while (!(cin >> prioridade))
     {
+        system("cls");
         cout << "Entrada inválida. Por favor, digite um número para a prioridade (1 a 5): ";
         cin.clear();
     }
@@ -110,6 +121,9 @@ Os* Morador::AbrirChamado(vector<Os>& listaOs){
         false
     );
     
+    system("cls");
+    cout << "\nOS criada com sucesso!\n";
+    
     listaOs.push_back(novaOs);
     salvarEmJson(listaOs, "ordens.json");
     
@@ -119,6 +133,7 @@ Os* Morador::AbrirChamado(vector<Os>& listaOs){
 }
 
 void Morador::VisualizarMeusChamados() const {
+    system("cls");
     cout << "\n-*-*- Chamados do Morador " << getNome() << " -*-*-\n";
     cout << "----------------------------------------\n";
 
@@ -138,6 +153,7 @@ void Morador::VisualizarMeusChamados() const {
     }
 
     if (!temChamados) {
+        system("cls");
         cout << "Você não tem nenhum chamado aberto ou registrado. \n";
     }
     cout << "\n";
@@ -156,63 +172,76 @@ void Morador::deletarChamado(int osId) {
                 salvarEmJson(listaOs, "ordens.json");
                 cout << "Chamado OS #" << osId << " deletado com sucesso.\n";
                 removido = true;
-            }else
+            }
+            
+            else
             {
+                system("cls");
                 cout << "O chamado OS #" << osId << " já foi concluído e não pode ser deletado. \n";
             }
+            
             break;
         }
     }
 }
 
-void Morador::AvaliarServico(int osId){
+void Morador::AvaliarServico(int osId) {
+    system("cls");
     cout << "\n-*-*- Avaliar Serviço (OS #" << osId << ") -*-*-\n";
     
     vector<Os> listaOs = carregarDoJson("ordens.json");
     Os* osParaAvaliar = nullptr;
 
-    for (size_t i = 0; i < listaOs.size(); i++){
-        if(listaOs[i].getNumeroOs() == osId){
+    // Encontrar a OS
+    for (size_t i = 0; i < listaOs.size(); i++) {
+        if(listaOs[i].getNumeroOs() == osId) {
             osParaAvaliar = &listaOs[i];
             break;
         }
     }
 
-    if(osParaAvaliar == nullptr){
+    if(osParaAvaliar == nullptr) {
         cout << "OS com número " << osId << " não foi encontrada.\n";
+        aguardarEnter();
         return;
     }
 
-    if(!osParaAvaliar->isConcluida()){
+    if(!osParaAvaliar->isConcluida()) {
         cout << "A OS #"<< osId << " ainda não foi concluída pelo técnico." << endl;
+        aguardarEnter();
         return;
     }
 
-    if(osParaAvaliar->isAvaliada()){
-        cout << "A OS #" << osId << " já foi avaliada por você. Sua avaliação: " << osParaAvaliar->getNotaAvaliacao() << " /5 - Comentário: " << osParaAvaliar->getComentarioMorador() << endl;
+    if(osParaAvaliar->isAvaliada()) {
+        cout << "A OS #" << osId << " já foi avaliada por você. Sua avaliação: " 
+             << osParaAvaliar->getNotaAvaliacao() << " /5 - Comentário: " 
+             << osParaAvaliar->getComentarioMorador() << endl;
+        aguardarEnter();
         return;
     }
 
+    // Capturar comentário
     string comentario_morador;
-    int nota;
-
-    cout << "Os encontrada. Serviço: " << osParaAvaliar->getServico() << endl;
-    cout << "Deixe um comenário sobre o serviço: ";
-    // Limpar bo buffer antes do getline
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cout << "OS encontrada. Serviço: " << osParaAvaliar->getServico() << endl;
+    cout << "Deixe um comentário sobre o serviço: ";
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     getline(cin, comentario_morador);
+
+    // Capturar nota
+    int nota;
     cout << "Dê uma nota (1 a 5): ";
-    while (!(cin >> nota) || nota < 1 || nota > 5){
+    while (!(cin >> nota) || nota < 1 || nota > 5) {
         cout << "Nota inválida! Digite um número de 1 a 5: ";
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cin.clear(); // Limpa o estado de erro
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Limpa o buffer
     }
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    // Atualizar a OS
     osParaAvaliar->setAvaliacao(comentario_morador, nota);
-    
     salvarEmJson(listaOs, "ordens.json");
 
-    cout << "OS #" << osId << " avaliada com sucesso!" << endl;
+    cout << "\nOS #" << osId << " avaliada com sucesso!" << endl;
+    aguardarEnter();
 }
 
 bool Morador::VerificarInadiplencia() const {

@@ -41,14 +41,11 @@ namespace nlohmann {
             double valor = j.at("valor");
             string dataFechamento = j.at("dataFechamento");
             bool conclusao = j.at("conclusao");
-
             int idMoradorCriador = j.value("idMoradorCriador", 0);
             string nomeMoradorCriador = j.value("nomeMoradorCriador", "Desconhecido");
-
             string comentarioMorador = j.value("comentarioMorador", "");
             int notaAvaliacao = j.value("notaAvaliacao", 0);
             bool avaliada = j.value("avaliada", false);
-
             int idTecnicoResponsavel = j.value("idTecnicoResponsavel", 0);
             string nomeTecnicoResponsavel = j.value("nomeTecnicoResponsavel", "N/A");
             bool atribuida = j.value("atribuida", false);

@@ -23,7 +23,7 @@ class Pessoa
             const string &email
         );
         
-    virtual void displayInfo() const; // Puramente virtual para garantir o Polimorfismo 
+    virtual void displayInfo() const = 0; // Puramente virtual para garantir o Polimorfismo 
 
     // Getters:
     int getId() const {return idRegistro; }

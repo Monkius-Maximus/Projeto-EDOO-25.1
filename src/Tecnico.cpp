@@ -63,13 +63,6 @@ void Tecnico::setNota(double novaNota){
     
 }
 
-void aguardarEnterTecnico() {
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    cout << "Pressione Enter para continuar...";
-    cin.get();
-}
-
-
 // Métodos da classe:
 void Tecnico::VisualizarChamadosDisponiveis() const{
     system("cls");
@@ -211,7 +204,8 @@ void Tecnico::FecharChamado() {
 
             system ("cls");
             cout << "\nOS #" << numeroOs << " fechada com sucesso!\n";
-            aguardarEnterTecnico();
+            cout << "Pressione Enter para continuar...";
+            cin.get();
             return;  // Sai após fechar uma OS
         }
     }
@@ -244,4 +238,31 @@ void Tecnico::VisualizarMeusChamadosAtribuidos() const{
         cout << "Você não tem nenhum chamado atribuído no momento.\n";
     }
     cout << "\n";
+}
+
+void Tecnico::atualizarNotaMedia() {
+    vector<Os> listaOs = carregarDoJson("ordens.json");
+
+    int somaNotas = 0;
+    int totalAvaliacoes = 0;
+
+    for (const Os& os : listaOs) {
+        if (os.isAvaliada() && os.getIdTecnicoResponsavel() == getId()) {
+            somaNotas += os.getNotaAvaliacao();
+            totalAvaliacoes++;
+        }
+    }
+
+    if (totalAvaliacoes > 0) {
+        nota = static_cast<double>(somaNotas) / totalAvaliacoes;
+    } else {
+        nota = 0.0;
+    }
+}
+
+void Tecnico::displayInfo() const {
+    cout << "TÉCNICO\n";
+    Pessoa::displayInfo();
+    cout << "Especialidade: " << especialidade << endl;
+    cout << "Nota média: " << nota << endl;
 }

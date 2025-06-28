@@ -3,6 +3,7 @@
 
 #include "Os.h"
 #include "Pessoa.h"
+#include "Tecnico.h"
 
 #include <vector>
 #include <string>
@@ -29,12 +30,14 @@ class Morador : public Pessoa
             char classeApartamento,
             bool inadiplente
         );
-        
+
+    void displayInfo() const override;
+    
     // Métodos da classe:
     Os* AbrirChamado(std::vector<Os>& listaOs);
     void VisualizarMeusChamados() const;
     void deletarChamado(int osId);
-    void AvaliarServico(int osId);
+    void AvaliarServico(int osId, Tecnico &tecnico);
     bool VerificarInadiplencia() const;
 
     // Getters:

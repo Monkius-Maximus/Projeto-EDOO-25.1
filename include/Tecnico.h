@@ -16,6 +16,7 @@ class Tecnico : public Pessoa
 {
     private:
         string especialidade;
+        int totalAvaliacoes = 0;
         double nota;
 
     public:
@@ -28,11 +29,14 @@ class Tecnico : public Pessoa
             double nota
         );
 
+    void displayInfo() const override;
+    
     // Métodos da classe:
     void VisualizarChamadosDisponiveis() const;
     void AceitarChamado(int osId);
     void FecharChamado();
     void VisualizarMeusChamadosAtribuidos() const;
+    void atualizarNotaMedia();
 
     // Getters:
     string getEspecialidade() const;

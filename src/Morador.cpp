@@ -1,3 +1,4 @@
+#include "../include/Tecnico.h"
 #include "../include/Morador.h"
 #include "../include/Persistencia.h"
 
@@ -69,7 +70,7 @@ void Morador::setInadiplente(bool status) {
 
 void aguardarEnter() {
     cout << "Pressione ENTER para continuar...";
-    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // limpa o buffer
+    cin.get();
 }
 
 
@@ -172,10 +173,7 @@ void Morador::deletarChamado(int osId) {
                 salvarEmJson(listaOs, "ordens.json");
                 cout << "Chamado OS #" << osId << " deletado com sucesso.\n";
                 removido = true;
-            }
-            
-            else
-            {
+            } else {
                 system("cls");
                 cout << "O chamado OS #" << osId << " já foi concluído e não pode ser deletado. \n";
             }
@@ -185,7 +183,7 @@ void Morador::deletarChamado(int osId) {
     }
 }
 
-void Morador::AvaliarServico(int osId) {
+void Morador::AvaliarServico(int osId, Tecnico &tecnico) {
     system("cls");
     cout << "\n-*-*- Avaliar Serviço (OS #" << osId << ") -*-*-\n";
     
@@ -214,7 +212,7 @@ void Morador::AvaliarServico(int osId) {
 
     if(osParaAvaliar->isAvaliada()) {
         cout << "A OS #" << osId << " já foi avaliada por você. Sua avaliação: " 
-             << osParaAvaliar->getNotaAvaliacao() << " /5 - Comentário: " 
+             << osParaAvaliar->getNotaAvaliacao() << "/5 - Comentário: " 
              << osParaAvaliar->getComentarioMorador() << endl;
         aguardarEnter();
         return;
@@ -224,7 +222,6 @@ void Morador::AvaliarServico(int osId) {
     string comentario_morador;
     cout << "OS encontrada. Serviço: " << osParaAvaliar->getServico() << endl;
     cout << "Deixe um comentário sobre o serviço: ";
-    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     getline(cin, comentario_morador);
 
     // Capturar nota
@@ -239,11 +236,33 @@ void Morador::AvaliarServico(int osId) {
     // Atualizar a OS
     osParaAvaliar->setAvaliacao(comentario_morador, nota);
     salvarEmJson(listaOs, "ordens.json");
+    
+    if (osParaAvaliar->getIdTecnicoResponsavel() == tecnico.getId()) {
+        tecnico.atualizarNotaMedia();
+        system("cls");
+        cout << "\nOS #" << osId << " avaliada com sucesso!" << endl;
+        cout << "Nota média atual do técnico "
+        << tecnico.getNome()
+        << ": " << tecnico.getNota() << " / 5" << endl;
+    } else {
+        cout << "\nOS #" << osId << " avaliada com sucesso!" << endl;
+        cout << "Técnico responsável: " << osParaAvaliar->getNomeTecnicoResponsavel() << endl;
+    }
 
-    cout << "\nOS #" << osId << " avaliada com sucesso!" << endl;
-    aguardarEnter();
+    cout << "Pressione ENTER para continuar...";
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // limpa o buffer
+    cin.get();
+
 }
 
 bool Morador::VerificarInadiplencia() const {
     return inadiplente;
+}
+
+void Morador::displayInfo() const {
+    cout << "MORADOR\n";
+    Pessoa::displayInfo();
+    cout << "Apartamento: " << apartamento << endl;
+    cout << "Classe: " << classeApartamento << endl;
+    cout << "Inadimplente: " << (inadiplente ? "Sim" : "Não") << endl;
 }

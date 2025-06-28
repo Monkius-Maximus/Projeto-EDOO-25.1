@@ -11,17 +11,18 @@ Os::Os()
     categoria = "Categoria do Serviço";
     servico = "Descrição do Serviço";
     prioridade = 0;
-
     comentarioTecnico = "Comentário do Técnico";
     valor = 0.00;
     dataFechamento = "Data de Fechamento";
     conclusao = false;
-
     idMoradorCriador = 0;
     nomeMoradorCriador = "Desconhecido";
+
+    // Verificar se está funcional
     comentarioMorador = "Comentário do Morador";
     notaAvaliacao = 0;
     avaliada = false;
+    //
 
     idTecnicoResponsavel = 0;
     nomeTecnicoResponsavel = "N/A";
@@ -41,9 +42,13 @@ Os::Os
     bool conclusao,
     int idMoradorCriador,
     const string &nomeMoradorCriador,
+
+    // Verificar se está funcional
     const string &comentarioMoradorPara,
     int notaAvaliacao,
     bool avaliada,
+    //
+
     int idTecnicoResponsavel_,
     const string &nomeTecnicoResponsavel_,
     bool atribuida_
@@ -55,18 +60,18 @@ Os::Os
     this->categoria = categoria;
     this->servico = servico;
     this->prioridade = prioridade;
-
     this->comentarioTecnico = comentarioTecnicoPara;
     this->valor = valor;
     this->dataFechamento = dataFechamento;
     this->conclusao = conclusao;
-
     this->idMoradorCriador = idMoradorCriador;
     this->nomeMoradorCriador = nomeMoradorCriador;
 
+    // Verificar se está funcional
     this->comentarioMorador = comentarioMoradorPara;
     this->notaAvaliacao = notaAvaliacao;
     this->avaliada = avaliada;
+    //
 
     this->idTecnicoResponsavel = idTecnicoResponsavel_;
     this->nomeTecnicoResponsavel = nomeTecnicoResponsavel_;
@@ -80,18 +85,18 @@ string Os::getDataAbertura() const { return dataAbertura; }
 string Os::getCategoria() const { return categoria; }
 string Os::getServico() const { return servico; }
 int Os::getPrioridade() const { return prioridade; }
-
 string Os::getComentarioTecnico() const { return comentarioTecnico; }
 double Os::getValor() const { return valor; }
 string Os::getDataFechamento() const { return dataFechamento; }
 bool Os::isConcluida() const { return conclusao; }
-
 int Os::getIdMoradorCriador() const { return idMoradorCriador; }
 string Os::getNomeMoradorCriador() const { return nomeMoradorCriador; }
 
+// Verificar se está funcional
 string Os::getComentarioMorador() const { return comentarioMorador; }
 int Os::getNotaAvaliacao() const { return notaAvaliacao; }
 bool Os::isAvaliada() const { return avaliada; }
+//
 
 int Os::getIdTecnicoResponsavel() const { return idTecnicoResponsavel; }
 string Os::getNomeTecnicoResponsavel() const { return nomeTecnicoResponsavel; }
@@ -140,9 +145,12 @@ void Os::exibirDetalhesTecnico() const {
     if(atribuida){
         cout << "Técnico Responsável (ID): " << idTecnicoResponsavel << endl;
         cout << "Técnico Responsável (Nome): " << nomeTecnicoResponsavel << endl;
-    }else {
+    }
+    
+    else {
         cout << "Status de Atribuição: Não atribuída." << endl;
     }
+
     cout << "Número da OS: " << numeroOs << endl;
     cout << "Data de Abertura: " << dataAbertura << endl;
     cout << "Categoria: " << categoria << endl;
@@ -154,9 +162,12 @@ void Os::exibirDetalhesTecnico() const {
     cout << "Concluída: " << (conclusao ? "Sim" : "Não") << endl;
     if(avaliada){
         cout << "Avaliação do Morador: " << notaAvaliacao << "/5 - Comentário: " << comentarioMorador << endl;
-    }else {
+    }
+    
+    else {
         cout << "Serviço ainda não avaliado pelo morador." << endl;
     }
+
 }
 
 void Os::exibiriDetalhesMorador() const {
@@ -172,17 +183,25 @@ void Os::exibiriDetalhesMorador() const {
         cout << "Sua Avaliação: " << notaAvaliacao << "/5" << endl; 
         if(!comentarioMorador.empty()){
             cout << "Comentário: " << comentarioMorador << endl;
-        } else {
+        }
+        
+        else {
             cout << "Comentário: (Não informado)" << endl;
+            
         }
         cout << "Status da Avaliação: Concluído!" << endl;
-    }else if (isConcluida()){
+    }
+    
+    else if (isConcluida()){
         cout << "Sua Avaliação: N/A" << endl;
         cout << "Comentário: N/A" << endl;
         cout << "Status da Avaliação: Serviço concluído, aguardando sua avaliação." << endl;
-    } else{
+    }
+    
+    else {
         cout << "Sua Avaliação: N/A" << endl; 
         cout << "Comentário: N/A" << endl; 
         cout << "Status da Avaliação: Serviço não concluído." << endl;
     }
+
 }

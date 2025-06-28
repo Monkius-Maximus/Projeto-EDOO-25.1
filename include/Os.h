@@ -20,6 +20,7 @@ class Os
         int prioridade; // Ex: 1 (Baixa), 2 (Média), 3 (Alta), 4 (Urgente), 5 (Emergencial)
         int idMoradorCriador; // ID do morador que irá criar o chamado;
         string nomeMoradorCriador; // Nome do morador que irá criar o chamado;
+
         string comentarioMorador; // Comentário do morador sobre a conclusão do serviço
         int notaAvaliacao;  // Nota dada pelo morador para o serviço
         bool avaliada; // Indica se a OS ja foi avaliada pelo morador
@@ -43,14 +44,13 @@ class Os
             const string &categoria,
             const string &servico,
             int prioridade,
-
-            const string &comentarioTecnicoPara, // comentario tecnico para morador
+            const string &comentarioTecnicoPara, // Comentário técnico para morador
             double valor,
             const string &dataFechamento,
             bool conclusao,
             int idMoradorCriador,
             const string &nomeMoradorCriador,
-            const string &comentarioMoradorPara, // Comentario morador para tecnico
+            const string &comentarioMoradorPara, // Comentário morador para técnico
             int notaAvaliacao,
             bool avaliada,
             int idTecnicoResponsavel,
@@ -64,18 +64,15 @@ class Os
         string getCategoria() const;
         string getServico() const;
         int getPrioridade() const;
-
         string getComentarioTecnico() const;
         double getValor() const;
         string getDataFechamento() const;
         bool isConcluida() const;
-
         int getIdMoradorCriador() const;
         string getNomeMoradorCriador() const;
         string getComentarioMorador() const;
         int getNotaAvaliacao() const;
         bool isAvaliada() const;
-
         int getIdTecnicoResponsavel() const;
         string getNomeTecnicoResponsavel() const;
         bool isAtribuida() const;
@@ -85,9 +82,9 @@ class Os
         void setValor(double valor);
         void setDataFechamento(const string &data);
         void setConclusao(bool status);
+
         void setAvaliacao(const string &comentarioMoradorPara, int nota);
         void setAvaliada(bool avaliada);
-
         void setAtribuicao(int idTecnico, const string &nomeTecnico);
         void setAtribuida(bool status);
 

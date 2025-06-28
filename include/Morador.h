@@ -3,6 +3,7 @@
 
 #include "Os.h"
 #include "Pessoa.h"
+#include "Tecnico.h"
 
 #include <vector>
 #include <string>
@@ -22,19 +23,21 @@ class Morador : public Pessoa
     public:
         Morador(); // Construtor padrão
         Morador (
-            int id,
+            int idRegistro,
             const string &nome,
             const string &email,
             const string &apartamento,
             char classeApartamento,
             bool inadiplente
         );
-        
+
+    void displayInfo() const override;
+    
     // Métodos da classe:
     Os* AbrirChamado(std::vector<Os>& listaOs);
     void VisualizarMeusChamados() const;
     void deletarChamado(int osId);
-    void AvaliarServico(int osId);
+    void AvaliarServico(int osId, Tecnico &tecnico);
     bool VerificarInadiplencia() const;
 
     // Getters:

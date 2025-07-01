@@ -29,8 +29,7 @@ Os::Os()
     atribuida = false;
 };
 
-Os::Os
-(
+Os::Os(
     int numeroOs,
     const string &dataAbertura,
     const string &categoria,
@@ -51,8 +50,7 @@ Os::Os
 
     int idTecnicoResponsavel_,
     const string &nomeTecnicoResponsavel_,
-    bool atribuida_
-)
+    bool atribuida_)
 
 {
     this->numeroOs = numeroOs;
@@ -76,7 +74,6 @@ Os::Os
     this->idTecnicoResponsavel = idTecnicoResponsavel_;
     this->nomeTecnicoResponsavel = nomeTecnicoResponsavel_;
     this->atribuida = atribuida_;
-
 };
 
 // Getters
@@ -103,51 +100,62 @@ string Os::getNomeTecnicoResponsavel() const { return nomeTecnicoResponsavel; }
 bool Os::isAtribuida() const { return atribuida; }
 
 // Setters
-void Os::setValor(double valor) {
+void Os::setValor(double valor)
+{
     this->valor = valor;
 }
 
-void Os::setComentarioTecnico(const string &comentarioTecnicoPara) {
+void Os::setComentarioTecnico(const string &comentarioTecnicoPara)
+{
     this->comentarioTecnico = comentarioTecnicoPara;
 }
 
-void Os::setConclusao(bool status) {
+void Os::setConclusao(bool status)
+{
     conclusao = status;
 }
 
-void Os::setDataFechamento(const string &data) {
+void Os::setDataFechamento(const string &data)
+{
     dataFechamento = data;
 }
 
-void Os::setAvaliacao(const string &comentarioMoradorPara, int nota){
+void Os::setAvaliacao(const string &comentarioMoradorPara, int nota)
+{
     this->comentarioMorador = comentarioMoradorPara;
     this->notaAvaliacao = nota;
     this->avaliada = true;
 }
 
-void Os::setAvaliada(bool avaliada){
+void Os::setAvaliada(bool avaliada)
+{
     this->avaliada = avaliada;
 }
 
-void Os::setAtribuicao(int idTecnico, const string& nomeTecnico){
+void Os::setAtribuicao(int idTecnico, const string &nomeTecnico)
+{
     this->idTecnicoResponsavel = idTecnico;
     this->nomeTecnicoResponsavel = nomeTecnico;
     this->atribuida = true;
 }
 
-void Os::setAtribuida(bool status){
+void Os::setAtribuida(bool status)
+{
     this->atribuida = status;
 }
 
 // Exibir Detalhes
-void Os::exibirDetalhesTecnico() const {
+void Os::exibirDetalhesTecnico() const
+{
     cout << fixed << setprecision(2);
-    if(atribuida){
+    if (atribuida)
+    {
         cout << "Técnico Responsável (ID): " << idTecnicoResponsavel << endl;
         cout << "Técnico Responsável (Nome): " << nomeTecnicoResponsavel << endl;
     }
-    
-    else {
+
+    else
+    {
         cout << "Status de Atribuição: Não atribuída." << endl;
     }
 
@@ -160,17 +168,19 @@ void Os::exibirDetalhesTecnico() const {
     cout << "Valor do Serviço: R$ " << valor << endl;
     cout << "Data de Fechamento: " << dataFechamento << endl;
     cout << "Concluída: " << (conclusao ? "Sim" : "Não") << endl;
-    if(avaliada){
+    if (avaliada)
+    {
         cout << "Avaliação do Morador: " << notaAvaliacao << "/5 - Comentário: " << comentarioMorador << endl;
     }
-    
-    else {
+
+    else
+    {
         cout << "Serviço ainda não avaliado pelo morador." << endl;
     }
-
 }
 
-void Os::exibiriDetalhesMorador() const {
+void Os::exibiriDetalhesMorador() const
+{
     cout << fixed << setprecision(2);
     cout << "ID do Morador: " << idMoradorCriador << endl;
     cout << "Nome do Morador: " << nomeMoradorCriador << endl;
@@ -179,29 +189,32 @@ void Os::exibiriDetalhesMorador() const {
     cout << "Categoria: " << categoria << endl;
     cout << "Descrição do Serviço: " << servico << endl;
     cout << "Prioridade: " << prioridade << endl;
-    if(avaliada){
-        cout << "Sua Avaliação: " << notaAvaliacao << "/5" << endl; 
-        if(!comentarioMorador.empty()){
+    if (avaliada)
+    {
+        cout << "Sua Avaliação: " << notaAvaliacao << "/5" << endl;
+        if (!comentarioMorador.empty())
+        {
             cout << "Comentário: " << comentarioMorador << endl;
         }
-        
-        else {
+
+        else
+        {
             cout << "Comentário: (Não informado)" << endl;
-            
         }
         cout << "Status da Avaliação: Concluído!" << endl;
     }
-    
-    else if (isConcluida()){
+
+    else if (isConcluida())
+    {
         cout << "Sua Avaliação: N/A" << endl;
         cout << "Comentário: N/A" << endl;
         cout << "Status da Avaliação: Serviço concluído, aguardando sua avaliação." << endl;
     }
-    
-    else {
-        cout << "Sua Avaliação: N/A" << endl; 
-        cout << "Comentário: N/A" << endl; 
+
+    else
+    {
+        cout << "Sua Avaliação: N/A" << endl;
+        cout << "Comentário: N/A" << endl;
         cout << "Status da Avaliação: Serviço não concluído." << endl;
     }
-
 }

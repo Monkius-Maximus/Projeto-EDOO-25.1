@@ -8,18 +8,21 @@
 using json = nlohmann::json;
 using namespace std;
 
-void salvarEmJson(const vector<Os>& listaOs, const string& caminho) {
+void salvarEmJson(const vector<Os> &listaOs, const string &caminho)
+{
     json j = listaOs;
     ofstream arquivo(caminho);
     arquivo << j.dump(4);
     arquivo.close();
 }
 
-vector<Os> carregarDoJson(const string& caminho) {
+vector<Os> carregarDoJson(const string &caminho)
+{
     ifstream arquivo(caminho);
     vector<Os> listaOs;
 
-    if (arquivo.is_open()) {
+    if (arquivo.is_open())
+    {
         json j;
         arquivo >> j;
         listaOs = j.get<vector<Os>>();

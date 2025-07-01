@@ -6,10 +6,13 @@
 
 using nlohmann::json;
 
-namespace nlohmann {
+namespace nlohmann
+{
     template <>
-    struct adl_serializer<Os> {
-        static void to_json(json& j, const Os& os) {
+    struct adl_serializer<Os>
+    {
+        static void to_json(json &j, const Os &os)
+        {
             j = json{
                 {"numeroOs", os.getNumeroOs()},
                 {"dataAbertura", os.getDataAbertura()},
@@ -27,11 +30,11 @@ namespace nlohmann {
                 {"avaliada", os.isAvaliada()},
                 {"idTecnicoResponsavel", os.getIdTecnicoResponsavel()},
                 {"nomeTecnicoResponsavel", os.getNomeTecnicoResponsavel()},
-                {"atribuida", os.isAtribuida()}
-            };
+                {"atribuida", os.isAtribuida()}};
         }
-        
-        static void from_json(const json& j, Os& os) {
+
+        static void from_json(const json &j, Os &os)
+        {
             int numero = j.at("numeroOs");
             string data = j.at("dataAbertura");
             string categoria = j.at("categoria");
@@ -67,8 +70,7 @@ namespace nlohmann {
                 avaliada,
                 idTecnicoResponsavel,
                 nomeTecnicoResponsavel,
-                atribuida
-            );
+                atribuida);
         }
     };
 }

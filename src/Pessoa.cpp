@@ -14,7 +14,6 @@ Pessoa::Pessoa(const int idRegistro, const string &nome, const string &email)
     this->idRegistro = idRegistro;
     this->nome = nome;
     this->email = email;
-
 };
 
 void Pessoa::displayInfo() const

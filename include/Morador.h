@@ -15,29 +15,28 @@ using std::string;
 
 class Morador : public Pessoa
 {
-    private:
-        string apartamento;
-        char classeApartamento;
-        bool inadiplente;
-        
-    public:
-        Morador(); // Construtor padrão
-        Morador (
-            int idRegistro,
-            const string &nome,
-            const string &email,
-            const string &apartamento,
-            char classeApartamento,
-            bool inadiplente
-        );
+private:
+    string apartamento;
+    char classeApartamento;
+    bool inadiplente;
+
+public:
+    Morador(); // Construtor padrão
+    Morador(
+        int idRegistro,
+        const string &nome,
+        const string &email,
+        const string &apartamento,
+        char classeApartamento,
+        bool inadiplente);
 
     void displayInfo() const override;
-    
+
     // Métodos da classe:
-    Os* AbrirChamado(std::vector<Os>& listaOs);
-    void VisualizarMeusChamados() const;
-    void deletarChamado(int osId);
-    void AvaliarServico(int osId, Tecnico &tecnico);
+    Os *AbrirChamado(std::vector<Os> &listaOs);
+    void VisualizarMeusChamados(const std::vector<Os> &listaOs) const;
+    void deletarChamado(int osId, std::vector<Os> &listaOs);
+    void AvaliarServico(int osId, std::vector<Os> &listaOs, Tecnico &tecnico);
     bool VerificarInadiplencia() const;
 
     // Getters:

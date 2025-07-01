@@ -72,7 +72,7 @@ Você pode acessar a versão do site em:
 
 ## 📎 Links Úteis
 
-- 📒 Miro (Documentação): [Acessar](https://www.notion.so/200310bb6bd18064a488f352b61458cd?v=202310bb6bd180168bc9000c944c56a0)
+- 📒 Miro Diagrama de Classes (Documentação): [Acessar](https://miro.com/app/board/uXjVIjGJgRI=/)
 - 🖼️ 
 
 ---

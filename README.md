@@ -1,3 +1,5 @@
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=66CDAA&height=120&section=header"/>
+
 # SGMP - Sistema de Gerenciamento de Manutenção Predial 🏢🧰
 
 Projeto desenvolvido para a disciplina de **Engenharia de Software com Orientação a Objetos (EDOO)**, utilizando a linguagem **C++** e os princípios fundamentais da **Programação Orientada a Objetos**.
@@ -74,7 +76,7 @@ Você pode acessar a versão do site em:
 
 1. Clone o repositório:
 ```bash
-git clone git@github.com:labprogsam/social-store-front.git
+https://github.com/Monkius-Maximus/Projeto-EDOO-25.1.git
 ```
 
 2. 
@@ -126,3 +128,5 @@ Este projeto é de caráter acadêmico, sem fins lucrativos. Todos os direitos r
 <p align="center">
   &copy; 2025 Universidade Federal de Pernambuco - Centro de Informática. Todos os direitos reservados.
 </p>
+
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=66CDAA&height=120&section=header"/>

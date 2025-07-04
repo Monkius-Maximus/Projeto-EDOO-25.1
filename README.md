@@ -86,12 +86,33 @@ https://github.com/Monkius-Maximus/Projeto-EDOO-25.1.git
 
 ## Galeria de Projetos
 
-![Tela de cadastro](/Images/Inicial-com-config.jpg)  
-*Legenda: Capa inicial do jogo com os professores homenageados!*
+![Tela de config](/Images/G-Inicial-com-config.jpg)  
+*Legenda: Tela inicial do programa*
 
 
-![Tela do Jogo](./imagens/Captura_de_tela_Xadrez.png)  
-*Legenda: Jogo iniciado*
+![Tela do Morador](./imagens/M-Tela-do-Morador.jpg)  
+*Legenda: Visão do Morador ao Iniciar*
+
+
+![Abrir OS](./imagens/M-Abrir-Os.jpg)  
+*Legenda: Visão do Morador para Abrir Ordem de Serviço*
+
+
+![Avaliar Os](./imagens/M-Avaliar-Os.jpg)  
+*Legenda: Visão do Morador para avaliar o serviço*
+
+
+![Tela do Tecnico](./imagens/T-Visão-do-Tecnico.jpg)  
+*Legenda: Visão do Tecnico ao Iniciar*
+
+![Tela do Tecnico Os](./imagens/T-Visualizar-Os.jpg)  
+*Legenda: Visão do Tecnico ao Visualizar OS*
+
+![Tela do Tecnico Aceitar Os](./imagens/T-Aceitar-OS.jpg)  
+*Legenda: Visão do Tecnico para Aceitar Os*
+
+![Visualizar Chamados](./imagens/T-Visualizar-Chamados.jpg)  
+*Legenda: Visão do Tecnico para visualizar os chaamdos*
 
 ## 📎 Links Úteis
 

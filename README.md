@@ -74,12 +74,15 @@ Você pode acessar a versão do site em:
 
 ## Passos para rodar o projeto localmente
 
-1. Clone o repositório:
+1. Estar Utilizando o Sistema Operacional Windows
+
+2. Clone o repositório:
 ```bash
 https://github.com/Monkius-Maximus/Projeto-EDOO-25.1.git
 ```
+3. Abrir o Terminal
 
-2. 
+4. Utilizar o Comando "./config" para compilar e executar o código.
 
 ## 📎 Links Úteis
 

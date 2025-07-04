@@ -4,7 +4,7 @@
 #include "Os.h"
 #include "json.h"
 
-using nlohmann::json;
+using nlohmann::json; // Permite usar 'json' diretamente
 
 namespace nlohmann
 {
@@ -12,7 +12,7 @@ namespace nlohmann
     struct adl_serializer<Os>
     {
         static void to_json(json &j, const Os &os)
-        {
+        {   // Função que mapeia um atributo da OS para uma chave JSON.
             j = json{
                 {"numeroOs", os.getNumeroOs()},
                 {"dataAbertura", os.getDataAbertura()},
@@ -33,6 +33,7 @@ namespace nlohmann
                 {"atribuida", os.isAtribuida()}};
         }
 
+        // Converte um objeto 'json' para um objeto 'Os'.
         static void from_json(const json &j, Os &os)
         {
             int numero = j.at("numeroOs");

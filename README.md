@@ -24,7 +24,7 @@ O SGMP tem como foco oferecer uma plataforma digital para **organizar, registrar
 
 - 🖥️ Linguagem: **C++**
 - 💾 Paradigma: **Programação Orientada a Objetos**
-- 📋 Documentação: **Google Docs**
+- 📋 Documentação: **Google Docs, Miro, Youtube**
 - 🎨 Apresentação visual: **Canva, Miro**
 - 🌐 Interface Web: **HTML + (GitHub Pages)**
 
@@ -64,16 +64,25 @@ O sistema é composto pelas seguintes classes:
 ## 🌍 Interface Web (opcional)
 
 Você pode acessar a versão do site em:  
-🔗 [](githubpages aqui)
+🔗 [](githubpages virá aqui)
 
 > *Feita com HTML e CSS para visualização e documentação do projeto.*
 
 ---
 
+## Passos para rodar o projeto localmente
+
+1. Clone o repositório:
+```bash
+git clone git@github.com:labprogsam/social-store-front.git
+```
+
+2. 
+
 ## 📎 Links Úteis
 
-- 📒 Miro Diagrama de Classes (Documentação): [Acessar](https://miro.com/app/board/uXjVIjGJgRI=/)
-- 🖼️ 
+- 📒 Miro Diagrama de Classes (Documentação): [Acessar](https://miro.com/app/board/uXjVIjGJgRI=/?share_link_id=360641450079)
+- 🖼️ Video Gravação da Equipe (Documentação): [Acessar]() 
 
 ---
 
@@ -81,11 +90,39 @@ Você pode acessar a versão do site em:
 
 Este projeto é de caráter acadêmico, sem fins lucrativos. Todos os direitos reservados aos autores.
 
+## Equipe do Projeto
+
+<div align="center">
+
+  <table>
+    <tr>
+      <td align="center">
+        <img src="https://avatars.githubusercontent.com/u/162474087?v=4" width="100px" alt="Pessoa 1"/><br/>
+        <b>Bruno Ramos 1</b>
+      </td>
+      <td align="center">
+        <img src="https://avatars.githubusercontent.com/u/155683708?v=4" width="100px" alt="Lucas Cabral"/><br/>
+        <b>Lucas Cabral</b>
+      </td>
+      <td align="center">
+        <img src="https://avatars.githubusercontent.com/u/204962998?v=4" width="100px" alt="Samuel Miranda"/><br/>
+        <b>Felipe Berardo</b>
+      </td>
+      <td align="center">
+        <img src="https://avatars.githubusercontent.com/u/149613054?v=4" width="100px" alt="Pessoa 3"/><br/>
+        <b>Diogo Rodrigues</b>
+      </td>
+      <td align="center">
+        <img src="https://avatars.githubusercontent.com/u/205383087?v=4" width="100px" alt="Pessoa 3"/><br/>
+        <b>Hugo Joseph</b>
+      </td>
+    </tr>
+  </table>
+
+</div>
+
 ---
 
-## 🚀Possiveis melhorias
-
-- Integração com banco de dados
-- Interface gráfica em Qt
-- Filtros de busca por OS
-- Relatórios exportáveis (PDF/CSV)
+<p align="center">
+  &copy; 2025 Universidade Federal de Pernambuco - Centro de Informática. Todos os direitos reservados.
+</p>

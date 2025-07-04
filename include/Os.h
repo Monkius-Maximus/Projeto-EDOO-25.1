@@ -8,11 +8,12 @@ using std::cout;
 using std::endl;
 using std::string;
 
+// Classe Os
 class Os
 {
 
-private:
-    // Morador insere
+private: // Seção Privada:
+    // Morador insere:
     int numeroOs; // Deverá ser automaticamente incrementado
     string dataAbertura;
     string categoria;          // Ex: "Elétrica", "Hidráulica", "Estrutural"
@@ -25,70 +26,70 @@ private:
     int notaAvaliacao;        // Nota dada pelo morador para o serviço
     bool avaliada;            // Indica se a OS ja foi avaliada pelo morador
 
-    // Técnico insere
+    // Técnico insere:
     string comentarioTecnico; // Comentário do técnico sobre a situação da OS
     double valor;             // Valor estimado do serviço
-    string dataFechamento;
+    string dataFechamento;    // Data de Fechamento da Orem de Serviço
     bool conclusao;                // Status de conclusão da OS (true/false)
     int idTecnicoResponsavel;      // ID do técnico que aceitou a OS
     string nomeTecnicoResponsavel; // Nome do técnico que aceitou a OS
     bool atribuida;                // Indicar se a OS foi atribuida a um tecnico
 
-public:
-    Os(); // Inicializar como construtor padrão vazio
+public: // Interface Pública:
+    Os(); // Construtor Padrão: Cria objetos Os sem incializar com seus atributos padrão.
 
     Os(
-        int NumeroOs,
-        const string &dataAbertura,
-        const string &categoria,
-        const string &servico,
-        int prioridade,
-        const string &comentarioTecnicoPara, // Comentário técnico para morador
-        double valor,
-        const string &dataFechamento,
-        bool conclusao,
-        int idMoradorCriador,
-        const string &nomeMoradorCriador,
-        const string &comentarioMoradorPara, // Comentário morador para técnico
-        int notaAvaliacao,
-        bool avaliada,
-        int idTecnicoResponsavel,
-        const string &nomeTecnicoResponsavel,
-        bool atribuida);
+        int NumeroOs, // Parâmetro: Número da Os.
+        const string &dataAbertura, // Parâmetro: Data de Abertura da OS.
+        const string &categoria, // Parâmetro: Categoria da Os.
+        const string &servico, // Parâmetro: Descrição do Serviço da Os.
+        int prioridade, // Parâmetro: Nível de Prioridade.
+        const string &comentarioTecnicoPara, // Parâmetro: Comentário do técnico (para morador).
+        double valor, // Parâmetro: Valor do Serviço.
+        const string &dataFechamento, // Parâmetro: Data de Fechamento da Os.
+        bool conclusao, // Parâmetro: Status de Conclusão;
+        int idMoradorCriador, // Parâmetro: ID do morador que criou a OS.
+        const string &nomeMoradorCriador, // Parâmetro: Nome do Morador que criou a Os.
+        const string &comentarioMoradorPara, // Parâmetro: Comentário do morador (para o técnico).
+        int notaAvaliacao, // Parâmetro: Nota de avaliação. 
+        bool avaliada, // Parâmetro: Status de avaliação.
+        int idTecnicoResponsavel, // Parâmetro: ID do técnico responsavel pela OS.
+        const string &nomeTecnicoResponsavel, // Parâmetro: Nome do técnico responsável pela OS.
+        bool atribuida); // Parâmetro: Status de Atribuição para técnico.
 
-    // Getters
-    int getNumeroOs() const;
-    string getDataAbertura() const;
-    string getCategoria() const;
-    string getServico() const;
-    int getPrioridade() const;
-    string getComentarioTecnico() const;
-    double getValor() const;
-    string getDataFechamento() const;
-    bool isConcluida() const;
-    int getIdMoradorCriador() const;
-    string getNomeMoradorCriador() const;
-    string getComentarioMorador() const;
-    int getNotaAvaliacao() const;
-    bool isAvaliada() const;
-    int getIdTecnicoResponsavel() const;
-    string getNomeTecnicoResponsavel() const;
-    bool isAtribuida() const;
+    // --- Getters ---
+    int getNumeroOs() const; // Retorna o Número da Os.
+    string getDataAbertura() const; // Retorna a Data de abertura.
+    string getCategoria() const; // Retorna Categoria da Os.
+    string getServico() const; // Retorna a Descrição do serviço.
+    int getPrioridade() const; // Retorna a Prioridade do serviço.
+    string getComentarioTecnico() const; // Retorna o comentário do Técnico.
+    double getValor() const; // Retorna o valor.
+    string getDataFechamento() const; // Retorna da Data de Fechamento.
+    bool isConcluida() const; // Retorna se a OS está concluida.
+    int getIdMoradorCriador() const; // Retorna o ID do morador que criou a Os.
+    string getNomeMoradorCriador() const; // Retorna o Nome do morador que criou a Os.
+    string getComentarioMorador() const; // Retorna o comentário do morador.
+    int getNotaAvaliacao() const; // Retorna a nota de avaliação.
+    bool isAvaliada() const; // Retorna se a OS foi avaliada.
+    int getIdTecnicoResponsavel() const; // Retorna ID do técnico responsável pela OS.
+    string getNomeTecnicoResponsavel() const; // Retorna Nome do técnico responsável pela OS.
+    bool isAtribuida() const; // Retorna se a OS está atribuida a um técnico.
 
-    // Setters
-    void setComentarioTecnico(const string &comentarioTecnicoPara);
-    void setValor(double valor);
-    void setDataFechamento(const string &data);
-    void setConclusao(bool status);
+    // --- Setters ---
+    void setComentarioTecnico(const string &comentarioTecnicoPara); // Define o comentário do técnico.
+    void setValor(double valor); // Define o valor do serviço.
+    void setDataFechamento(const string &data); // Define a data de fechamento.
+    void setConclusao(bool status); // Define o status da conclusão.
 
-    void setAvaliacao(const string &comentarioMoradorPara, int nota);
-    void setAvaliada(bool avaliada);
-    void setAtribuicao(int idTecnico, const string &nomeTecnico);
-    void setAtribuida(bool status);
+    void setAvaliacao(const string &comentarioMoradorPara, int nota); // Define o comentário e a nota de avaliação do Morador.
+    void setAvaliada(bool avaliada); // Define o status da Avaliação.
+    void setAtribuicao(int idTecnico, const string &nomeTecnico); // Define o técnico responsável e marca como atribuída.
+    void setAtribuida(bool status); // Define o status da Atribuição.
 
-    // Método para exibir detalhes da OS
-    void exibirDetalhesTecnico() const;
-    void exibiriDetalhesMorador() const;
+    // --- Método para exibir detalhes da OS ---
+    void exibirDetalhesTecnico() const; // Exibe os detalhes da OS focando em informações relevantes apenas para o técnico.
+    void exibiriDetalhesMorador() const; // Exibe os detalhes da OS focando em informações relevantes apenas para o morador.
 };
 
 #endif

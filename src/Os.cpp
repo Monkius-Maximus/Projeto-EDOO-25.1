@@ -4,6 +4,8 @@
 
 using namespace std;
 
+// --- Construtor Padrão ---
+// Inicializa um objeto Os com valores padrão ou "N/A" para seus atributos.
 Os::Os()
 {
     numeroOs = 0;
@@ -29,6 +31,7 @@ Os::Os()
     atribuida = false;
 };
 
+// --- Construtor Completo com 17 Parâmetros ---
 Os::Os(
     int numeroOs,
     const string &dataAbertura,
@@ -52,7 +55,7 @@ Os::Os(
     const string &nomeTecnicoResponsavel_,
     bool atribuida_)
 
-{
+{ // Atribuições dos parâmetros aos membros da classe (usando 'this->' para clareza).
     this->numeroOs = numeroOs;
     this->dataAbertura = dataAbertura;
     this->categoria = categoria;
@@ -76,7 +79,7 @@ Os::Os(
     this->atribuida = atribuida_;
 };
 
-// Getters
+// --- Getters ---
 int Os::getNumeroOs() const { return numeroOs; }
 string Os::getDataAbertura() const { return dataAbertura; }
 string Os::getCategoria() const { return categoria; }
@@ -88,40 +91,37 @@ string Os::getDataFechamento() const { return dataFechamento; }
 bool Os::isConcluida() const { return conclusao; }
 int Os::getIdMoradorCriador() const { return idMoradorCriador; }
 string Os::getNomeMoradorCriador() const { return nomeMoradorCriador; }
-
-// Verificar se está funcional
 string Os::getComentarioMorador() const { return comentarioMorador; }
 int Os::getNotaAvaliacao() const { return notaAvaliacao; }
 bool Os::isAvaliada() const { return avaliada; }
-//
-
 int Os::getIdTecnicoResponsavel() const { return idTecnicoResponsavel; }
 string Os::getNomeTecnicoResponsavel() const { return nomeTecnicoResponsavel; }
 bool Os::isAtribuida() const { return atribuida; }
 
-// Setters
+// --- Setters ---
 void Os::setValor(double valor)
 {
-    this->valor = valor;
+    this->valor = valor; // Define o valor do serviço.
 }
 
 void Os::setComentarioTecnico(const string &comentarioTecnicoPara)
 {
-    this->comentarioTecnico = comentarioTecnicoPara;
+    this->comentarioTecnico = comentarioTecnicoPara; // Define o comentário do técnico.
 }
 
 void Os::setConclusao(bool status)
 {
-    conclusao = status;
+    conclusao = status; // Define o status de conclusão da OS.
 }
 
 void Os::setDataFechamento(const string &data)
 {
-    dataFechamento = data;
+    dataFechamento = data; // Define a data de fechamento da OS.
 }
 
+// Define os dados de avaliação do morador e marca a OS como avaliada.
 void Os::setAvaliacao(const string &comentarioMoradorPara, int nota)
-{
+{   // Atribuições dos parâmetros aos membros da classe (usando 'this->' para clareza).
     this->comentarioMorador = comentarioMoradorPara;
     this->notaAvaliacao = nota;
     this->avaliada = true;
@@ -129,11 +129,12 @@ void Os::setAvaliacao(const string &comentarioMoradorPara, int nota)
 
 void Os::setAvaliada(bool avaliada)
 {
-    this->avaliada = avaliada;
+    this->avaliada = avaliada; // Define explicitamente o status de avaliação.
 }
 
+// Define o técnico responsável pela OS e marca a OS como atribuída.
 void Os::setAtribuicao(int idTecnico, const string &nomeTecnico)
-{
+{   // Atribuições dos parâmetros aos membros da classe (usando 'this->' para clareza).
     this->idTecnicoResponsavel = idTecnico;
     this->nomeTecnicoResponsavel = nomeTecnico;
     this->atribuida = true;
@@ -141,20 +142,24 @@ void Os::setAtribuicao(int idTecnico, const string &nomeTecnico)
 
 void Os::setAtribuida(bool status)
 {
-    this->atribuida = status;
+    this->atribuida = status; // Define explicitamente o status de atribuição.
 }
 
-// Exibir Detalhes
+// --- Métodos de Exibição de Detalhes do Técnico ---
+
+// Exibe detalhes da OS focando nas informações relevantes para o Técnico.
 void Os::exibirDetalhesTecnico() const
 {
     cout << fixed << setprecision(2);
-    if (atribuida)
+
+    // Exibe informações de atribuição do técnico.
+    if (atribuida) // Se a OS está atribuída a um técnico.
     {
         cout << "Técnico Responsável (ID): " << idTecnicoResponsavel << endl;
         cout << "Técnico Responsável (Nome): " << nomeTecnicoResponsavel << endl;
     }
 
-    else
+    else // Se a OS não está atribuída.
     {
         cout << "Status de Atribuição: Não atribuída." << endl;
     }
@@ -168,50 +173,55 @@ void Os::exibirDetalhesTecnico() const
     cout << "Valor do Serviço: R$ " << valor << endl;
     cout << "Data de Fechamento: " << dataFechamento << endl;
     cout << "Concluída: " << (conclusao ? "Sim" : "Não") << endl;
-    if (avaliada)
+
+    // Exibe informações de avaliação do morador, se aplicável.
+    if (avaliada) // Se a OS já foi avaliada pelo morador.
     {
         cout << "Avaliação do Morador: " << notaAvaliacao << "/5 - Comentário: " << comentarioMorador << endl;
     }
-
-    else
+    else // Se a OS ainda não foi avaliada pelo morador.
     {
         cout << "Serviço ainda não avaliado pelo morador." << endl;
     }
 }
 
+// Exibe detalhes da OS focando nas informações relevantes para o Morador.
 void Os::exibiriDetalhesMorador() const
 {
     cout << fixed << setprecision(2);
+
+    // Exibe informações do morador criador:
     cout << "ID do Morador: " << idMoradorCriador << endl;
     cout << "Nome do Morador: " << nomeMoradorCriador << endl;
+
+    // Exibe informações básicas da OS:
     cout << "Numero da OS: " << numeroOs << endl;
     cout << "Data de Abertura: " << dataAbertura << endl;
     cout << "Categoria: " << categoria << endl;
     cout << "Descrição do Serviço: " << servico << endl;
     cout << "Prioridade: " << prioridade << endl;
-    if (avaliada)
+
+    // Lógica para exibir status da avaliação e comentário do morador.
+    if (avaliada) // Se a OS já foi avaliada pelo morador.
     {
         cout << "Sua Avaliação: " << notaAvaliacao << "/5" << endl;
-        if (!comentarioMorador.empty())
+        if (!comentarioMorador.empty()) // Se o morador deixou um comentário.
         {
             cout << "Comentário: " << comentarioMorador << endl;
         }
-
-        else
+        else // Se o morador não deixou um comentário (mas avaliou).
         {
             cout << "Comentário: (Não informado)" << endl;
         }
         cout << "Status da Avaliação: Concluído!" << endl;
     }
-
-    else if (isConcluida())
+    else if (isConcluida()) // Se a OS não foi avaliada, mas está concluída.
     {
         cout << "Sua Avaliação: N/A" << endl;
         cout << "Comentário: N/A" << endl;
         cout << "Status da Avaliação: Serviço concluído, aguardando sua avaliação." << endl;
     }
-
-    else
+    else // Se a OS não está concluída (e portanto, não avaliada).
     {
         cout << "Sua Avaliação: N/A" << endl;
         cout << "Comentário: N/A" << endl;

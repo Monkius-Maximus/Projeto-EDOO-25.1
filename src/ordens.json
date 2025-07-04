@@ -93,5 +93,24 @@
         "prioridade": 4,
         "servico": "Chuveiro elétrico dando choque",
         "valor": 0.0
+    },
+    {
+        "atribuida": false,
+        "avaliada": false,
+        "categoria": "Eletrica",
+        "comentarioMorador": "",
+        "comentarioTecnico": "",
+        "conclusao": false,
+        "dataAbertura": "14/02/2002",
+        "dataFechamento": "",
+        "idMoradorCriador": 21,
+        "idTecnicoResponsavel": 0,
+        "nomeMoradorCriador": "João",
+        "nomeTecnicoResponsavel": "N/A",
+        "notaAvaliacao": 0,
+        "numeroOs": 11,
+        "prioridade": 5,
+        "servico": "Problema na tomada sem energia",
+        "valor": 0.0
     }
 ]

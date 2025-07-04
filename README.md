@@ -84,6 +84,15 @@ https://github.com/Monkius-Maximus/Projeto-EDOO-25.1.git
 
 4. Utilizar o Comando "./config" para compilar e executar o código.
 
+## Galeria de Projetos
+
+![Tela de cadastro](/Images/Inicial-com-config.jpg)  
+*Legenda: Capa inicial do jogo com os professores homenageados!*
+
+
+![Tela do Jogo](./imagens/Captura_de_tela_Xadrez.png)  
+*Legenda: Jogo iniciado*
+
 ## 📎 Links Úteis
 
 - 📒 Miro Diagrama de Classes (Documentação): [Acessar](https://miro.com/app/board/uXjVIjGJgRI=/?share_link_id=360641450079)

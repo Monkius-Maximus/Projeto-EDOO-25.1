@@ -90,28 +90,28 @@ https://github.com/Monkius-Maximus/Projeto-EDOO-25.1.git
 *Legenda: Tela inicial do programa*
 
 
-![Tela do Morador](./Imagens/M-Tela-do-Morador.jpg)  
+![Tela do Morador](/Images/M-Tela-do-Morador.jpg)  
 *Legenda: Visão do Morador ao Iniciar*
 
 
-![Abrir OS](./Imagens/M-Abrir-Os.jpg)  
+![Abrir OS](/Images/M-Abrir-Os.jpg)  
 *Legenda: Visão do Morador para Abrir Ordem de Serviço*
 
 
-![Avaliar Os](./Imagens/M-Avaliar-Os.jpg)  
+![Avaliar Os](/Images/M-Avaliar-Os.jpg)  
 *Legenda: Visão do Morador para avaliar o serviço*
 
 
-![Tela do Tecnico](./Imagens/T-Visão-do-Tecnico.jpg)  
+![Tela do Tecnico](/Images/T-Visão-do-Tecnico.jpg)  
 *Legenda: Visão do Tecnico ao Iniciar*
 
-![Tela do Tecnico Os](./Imagens/T-Visualizar-Os.jpg)  
+![Tela do Tecnico Os](/Images/T-Visualizar-Os.jpg)  
 *Legenda: Visão do Tecnico ao Visualizar OS*
 
-![Tela do Tecnico Aceitar Os](./Imagens/T-Aceitar-OS.jpg)  
+![Tela do Tecnico Aceitar Os](/Images/T_Aceitar-OS.jpg)  
 *Legenda: Visão do Tecnico para Aceitar Os*
 
-![Visualizar Chamados](./Imagens/T-Visualizar-Chamados.jpg)  
+![Visualizar Chamados](/Images/T-Visualizar-Chamados.jpg)  
 *Legenda: Visão do Tecnico para visualizar os chaamdos*
 
 ## 📎 Links Úteis

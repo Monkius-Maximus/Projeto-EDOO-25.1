@@ -66,7 +66,7 @@ O sistema é composto pelas seguintes classes:
 ## 🌍 Interface Web (opcional)
 
 Você pode acessar a versão do site em:  
-🔗 [](githubpages virá aqui)
+🔗 [Acessar](https://monkius-maximus.github.io/Projeto-EDOO-25.1/)
 
 > *Feita com HTML e CSS para visualização e documentação do projeto.*
 
@@ -117,7 +117,8 @@ https://github.com/Monkius-Maximus/Projeto-EDOO-25.1.git
 ## 📎 Links Úteis
 
 - 📒 Miro Diagrama de Classes (Documentação): [Acessar](https://miro.com/app/board/uXjVIjGJgRI=/?share_link_id=360641450079)
-- 🖼️ Video Gravação da Equipe (Documentação): [Acessar]() 
+- 📒 Relatório do projeto (Documentação): [[Acessar](https://docs.google.com/document/d/1y8hEiVqIeo23cP1Dfm8pWYSext3sXQwAs7VtA4Fhvvw/edit?usp=sharing)
+- 🖼️ Video Gravação da Equipe (Documentação): [Acessar](https://youtu.be/R9fTNHiMr3E?si=aibvy_vtQgkn-bAl) 
 
 ---
 

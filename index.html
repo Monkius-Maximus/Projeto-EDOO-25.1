@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <title>SGMP - Sistema de Gerenciamento de Manutenção Predial</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+    .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+    .fa-code,.fa-cogs {font-size:120px}
+    .gallery-img {width: 100%; margin-bottom: 16px;}
+  </style>
+</head>
+<body>
+
+<div class="w3-top">
+  <div class="w3-bar w3-blue w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-blue" href="javascript:void(0);" onclick="myFunction()" title="Menu"><i class="fa fa-bars"></i></a>
+    <a href="#intro" class="w3-bar-item w3-button w3-padding-large w3-white">Início</a>
+    <a href="#arquitetura" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Arquitetura</a>
+    <a href="#poo" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">POO</a>
+    <a href="#fluxo" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Fluxo</a>
+    <a href="#galeria" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Galeria</a>
+    <a href="#links" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Links</a>
+  </div>
+</div>
+
+<header class="w3-container w3-blue w3-center" style="padding:128px 16px" id="intro">
+  <h1 class="w3-jumbo">SGMP</h1>
+  <p class="w3-xlarge">Sistema de Gerenciamento de Manutenção Predial em C++</p>
+  <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick="document.getElementById('arquitetura').scrollIntoView()">Conheça o Projeto</button>
+</header>
+
+<div class="w3-row-padding w3-padding-64 w3-container" id="arquitetura">
+  <div class="w3-content">
+    <div class="w3-twothird">
+      <h2>Arquitetura do Sistema</h2>
+      <p>O SGMP foi desenvolvido com foco em modularidade e organização. Ele permite que moradores de um condomínio registrem chamados de manutenção, que são atribuídos a técnicos e acompanhados até a finalização.</p>
+      <ul>
+        <li><strong>Pessoa:</strong> classe base para usuários (ID, nome, contato)</li>
+        <li><strong>Morador:</strong> herda de Pessoa (inclui bloco e apartamento)</li>
+        <li><strong>Técnico:</strong> herda de Pessoa (inclui especialidade)</li>
+        <li><strong>OrdemDeServico:</strong> gerencia status, data, descrição, técnico e morador envolvidos</li>
+      </ul>
+    </div>
+    <div class="w3-third w3-center">
+      <i class="fa fa-cogs w3-text-blue"></i>
+    </div>
+  </div>
+</div>
+
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container" id="poo">
+  <div class="w3-content">
+    <div class="w3-third w3-center">
+      <i class="fa fa-code w3-text-blue"></i>
+    </div>
+    <div class="w3-twothird">
+      <h2>Aplicação dos Conceitos de POO</h2>
+      <p><strong>Herança:</strong> permite reutilizar código com a classe base Pessoa, herdada por Morador e Técnico.</p>
+      <p><strong>Polimorfismo:</strong> cada tipo de usuário implementa o método <code>exibirInformacoes()</code>, que é chamado dinamicamente.</p>
+      <p><strong>Encapsulamento:</strong> todos os atributos são privados e acessados via métodos públicos, mantendo a integridade dos dados.</p>
+    </div>
+  </div>
+</div>
+
+<div class="w3-row-padding w3-padding-64 w3-container" id="fluxo">
+  <div class="w3-content">
+    <h2>Fluxo de Uso do Sistema</h2>
+    <ol>
+      <li>Morador acessa o sistema e abre uma Ordem de Serviço (OS).</li>
+      <li>O sistema cria a OS com status "ABERTA".</li>
+      <li>Um Técnico com a especialidade correspondente vê a OS e se responsabiliza.</li>
+      <li>Status muda para "EM ANDAMENTO".</li>
+      <li>Após o reparo, técnico finaliza a OS, mudando o status para "CONCLUÍDA".</li>
+      <li>O histórico completo é salvo e pode ser consultado.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container" id="galeria">
+  <div class="w3-content">
+    <h2 class="w3-center">Galeria de Projetos</h2>
+
+    <div class="w3-third">
+      <img src="https://github.com/Monkius-Maximus/Projeto-EDOO-25.1/raw/main/Images/G-Inicial-com-config.jpg" alt="Tela de config" class="gallery-img">
+      <p>Legenda: Tela inicial do programa</p>
+    </div>
+
+    <div class="w3-third">
+      <img src="https://github.com/Monkius-Maximus/Projeto-EDOO-25.1/raw/main/Images/M-Tela-do-Morador.jpg" alt="Tela do Morador" class="gallery-img">
+      <p>Legenda: Visão do Morador ao Iniciar</p>
+    </div>
+
+    <div class="w3-third">
+      <img src="https://github.com/Monkius-Maximus/Projeto-EDOO-25.1/raw/main/Images/M-Abrir-Os.jpg" alt="Abrir OS" class="gallery-img">
+      <p>Legenda: Visão do Morador para Abrir Ordem de Serviço</p>
+    </div>
+
+    <div class="w3-third">
+      <img src="https://github.com/Monkius-Maximus/Projeto-EDOO-25.1/raw/main/Images/M-Avaliar-Os.jpg" alt="Avaliar Os" class="gallery-img">
+      <p>Legenda: Visão do Morador para avaliar o serviço</p>
+    </div>
+
+    <div class="w3-third">
+      <img src="https://github.com/Monkius-Maximus/Projeto-EDOO-25.1/raw/main/Images/T-Vis%C3%A3o-do-Tecnico.jpg" alt="Tela do Tecnico" class="gallery-img">
+      <p>Legenda: Visão do Tecnico ao Iniciar</p>
+    </div>
+
+    <div class="w3-third">
+      <img src="https://github.com/Monkius-Maximus/Projeto-EDOO-25.1/raw/main/Images/T-Visualizar-Os.jpg" alt="Tela do Tecnico Os" class="gallery-img">
+      <p>Legenda: Visão do Tecnico ao Visualizar OS</p>
+    </div>
+
+    <div class="w3-third">
+      <img src="https://github.com/Monkius-Maximus/Projeto-EDOO-25.1/raw/main/Images/T_Aceitar-OS.jpg" alt="Tela do Tecnico Aceitar Os" class="gallery-img">
+      <p>Legenda: Visão do Tecnico para Aceitar Os</p>
+    </div>
+    
+    <div class="w3-third">
+      <img src="https://github.com/Monkius-Maximus/Projeto-EDOO-25.1/raw/main/Images/T-Visualizar-Chamados.jpg" alt="Visualizar Chamados" class="gallery-img">
+      <p>Legenda: Visão do Tecnico para visualizar os chamados</p>
+    </div>
+  </div>
+</div>
+
+<div class="w3-container w3-padding-64 w3-center" id="links">
+  <h2>Links do Projeto</h2>
+  <p>Confira alguns links interessantes</p>
+  <p><a class="w3-button w3-blue w3-margin" href="https://github.com/Monkius-Maximus/Projeto-EDOO-25.1/tree/main" target="_blank">Repositório</a>
+     <a class="w3-button w3-blue w3-margin" href="https://youtu.be/R9fTNHiMr3E?si=aOQ3fczM2h1dMCme" target="_blank">Video Gravação</a></p>
+</div>
+
+<footer class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+  <h3>Equipe 5 - EDOO</h3>
+  <p>Integrantes: Bruno Gabriel, Diogo da Silva, Felipe Berardo, Hugo José, Lucas Cabral</p>
+</footer>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+</body>
+</html>
